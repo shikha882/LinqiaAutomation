@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="Authentication" verbose="1" >
+ <parameter name="browser" value="FIREFOX"/>
+  <test name="testExistingGroupLeader">
+    <classes>
+      <class name="com.linqia.automation.authentication"/>
+      <methods>
+        <include name="testExistingGroupLeader" />
+      </methods>
+    </classes>
+  </test>
+</suite>
