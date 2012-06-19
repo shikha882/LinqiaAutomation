@@ -22,54 +22,56 @@ import java.io.File;
 public class authentication {
 	
 	private String baseUrl;
-	private BrowserType selectedBrowser;
 	private FirefoxDriver driver;
-	private String browser;
 	private StringBuffer verificationErrors = new StringBuffer();
-	public enum BrowserType { FIREFOX,CHROME,IE9,SAFARI,HTMLUNIT };
 
-	@Parameters({ "browser" })
+	@Parameters({ "browser", "Url", "firefoxProfile"})
 	@BeforeTest
-	public void setUp() throws Exception {
+	public void setUp(String browser, String Url, String firefoxProfile) throws Exception {
 		System.out.println("browser is " + browser);
-		selectedBrowser = BrowserType.valueOf(browser);
-		switch (selectedBrowser) {
-			case FIREFOX:
-				File profileDir = new File("C:\\Users\\Administrator\\workspace\\Linqia\\config\\firefox");
-				FirefoxProfile profile = new FirefoxProfile(profileDir);
-				driver = new FirefoxDriver(profile);
-				baseUrl = "http://stage.linqia.com/";
-				driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-				System.out.println("Browser type is " + selectedBrowser);
-			case CHROME:
-				//TBD
-				System.out.println("Browser type is " + selectedBrowser);
-			case IE9:
-				//TBD
-				System.out.println("Browser type is " + selectedBrowser);
-			case SAFARI:
-				//TBD
-				System.out.println("Browser type is " + selectedBrowser);
-			case HTMLUNIT:
-				//TBD
-				System.out.println("Browser type is " + selectedBrowser);
-			default:
-				throw new RuntimeException("Browser type" + selectedBrowser + "is unsupported.");
-	   }
-    }
-
+		System.out.println("Base URL is " + Url);
+		System.out.println("Firefox profile directory is " + firefoxProfile);
+		File profileDir = new File(firefoxProfile);
+		FirefoxProfile profile = new FirefoxProfile(profileDir);
+		driver = new FirefoxDriver(profile);
+		baseUrl = Url;
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	 }
+	
+	@Parameters({ "user", "pwd", "userType" })
 	@Test
-	public void testExistingGroupLeader() throws Exception {
+	public void testExistingGroupLeader(String user, String pwd, String userType) throws Exception {
 		driver.get(baseUrl + "/login.php");
+		System.out.println("Username is " + user);
+		System.out.println("Password is " + pwd);
+		System.out.println("User type is " + userType);
 		driver.findElement(By.name("username")).clear();
-		driver.findElement(By.name("username")).sendKeys("sneha");
+		driver.findElement(By.name("username")).sendKeys(user);
 		driver.findElement(By.name("password")).clear();
-		driver.findElement(By.name("password")).sendKeys("abracadabra");
+		driver.findElement(By.name("password")).sendKeys(pwd);
 		driver.findElement(By.cssSelector("button.actionButton.fleft")).click();
-		// ERROR: Caught exception [ERROR: Unsupported command [isTextPresent]]
+		String name = driver.findElement(By.cssSelector("p.userType")).getText();
+		assertEquals(name, userType);
 		driver.findElement(By.linkText("Logout")).click();
 	}
-
+	
+	@Parameters({ "user", "pwd", "userType" })
+	@Test
+	public void testExistingBrandUser(String user, String pwd, String userType) throws Exception {
+		driver.get(baseUrl + "/login.php");
+		System.out.println("Username is " + user);
+		System.out.println("Password is " + pwd);
+		System.out.println("User type is " + userType);
+		driver.findElement(By.name("username")).clear();
+		driver.findElement(By.name("username")).sendKeys(user);
+		driver.findElement(By.name("password")).clear();
+		driver.findElement(By.name("password")).sendKeys(pwd);
+		driver.findElement(By.cssSelector("button.actionButton.fleft")).click();
+		String name = driver.findElement(By.cssSelector("p.userType")).getText();
+		assertEquals(name, userType);
+		driver.findElement(By.linkText("Logout")).click();
+	}
+	
 	@AfterTest
 	public void tearDown() throws Exception {
 		driver.quit();

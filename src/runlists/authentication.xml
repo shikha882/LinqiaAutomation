@@ -1,12 +1,28 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
   
 <suite name="Authentication" verbose="1" >
- <parameter name="browser" value="FIREFOX"/>
+  <parameter name="browser" value="firefox"/>
+  <parameter name="Url" value="http://stage.linqia.com"/>
+  <parameter name="firefoxProfile" value="C:\\Users\\Administrator\\workspace\\Linqia\\config\\firefox"/>
   <test name="testExistingGroupLeader">
     <classes>
       <class name="com.linqia.automation.authentication"/>
       <methods>
+        <parameter name="user" value="shikha"/>
+        <parameter name="pwd" value="abracadabra1"/>
+        <parameter name="userType" value="Brand"/>
         <include name="testExistingGroupLeader" />
+      </methods>
+    </classes>
+  </test>
+  <test name="testExistingBrandUser">
+    <classes>
+      <class name="com.linqia.automation.authentication"/>
+      <methods>
+        <parameter name="user" value="sneha"/>
+        <parameter name="pwd" value="abracadabra"/>
+        <parameter name="userType" value="Group Leader"/>
+        <include name="testExistingBrandUser" />
       </methods>
     </classes>
   </test>

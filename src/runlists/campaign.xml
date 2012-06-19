@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+  
+<suite name="Authentication" verbose="1" >
+  <parameter name="browser" value="firefox"/>
+  <parameter name="Url" value="http://stage.linqia.com"/>
+  <parameter name="firefoxProfile" value="C:\\Users\\Administrator\\workspace\\Linqia\\config\\firefox"/>
+  <test name="testExistingGroupLeader">
+    <classes>
+      <class name="com.linqia.automation.campaign"/>
+      <methods>
+        <parameter name="user" value="shikha"/>
+        <parameter name="pwd" value="abracadabra1"/>
+        <parameter name="campaignName" value="How Social Moms Shop"/>
+        <parameter name="keyword" value="Social Mom"/>
+        <include name="testDraftCampaign" />
+      </methods>
+    </classes>
+  </test>
+ </suite>
