@@ -1,10 +1,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
   
-<suite name="Authentication" verbose="1" >
+<suite name="Campaigns" verbose="2" >
   <parameter name="browser" value="firefox"/>
   <parameter name="Url" value="http://stage.linqia.com"/>
-  <parameter name="firefoxProfile" value="C:\\Users\\Administrator\\workspace\\Linqia\\config\\firefox"/>
-  <test name="testExistingGroupLeader">
+  <parameter name="firefoxProfile" value="c:\\Users\\Administrator\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\r4v77u96.automation\\"/>
+  <test name="testDraftCampaign">
     <classes>
       <class name="com.linqia.automation.campaign"/>
       <methods>
@@ -16,4 +16,16 @@
       </methods>
     </classes>
   </test>
+  <test name="testOverlayDeletion">
+    <classes>
+      <class name="com.linqia.automation.campaign"/>
+      <methods>
+        <parameter name="user" value="shikha"/>
+        <parameter name="pwd" value="abracadabra1"/>
+        <parameter name="campaignName" value="How Social Moms Shop"/>
+        <parameter name="keyword" value="Social Mom"/>
+        <include name="testOverlayDeletion" />
+      </methods>
+    </classes>
+  </test> 
  </suite>
