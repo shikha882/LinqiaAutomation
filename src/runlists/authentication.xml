@@ -1,9 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
   
 <suite name="Authentication" verbose="2" >
-  <parameter name="browser" value="firefox"/>
+  <parameter name="browser" value="googlechrome"/>
   <parameter name="Url" value="http://stage.linqia.com"/>
   <parameter name="firefoxProfile" value="c:\\Users\\Administrator\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\r4v77u96.automation\\"/>
+  <parameter name="chromeProfile" value="C:\\Users\\Administrator\\workspace\\Linqia\\jars\\chromedriver\\chromedriver.exe"/>
+  <parameter name="ieProfile" value="C:\\Users\\Administrator\\workspace\\Linqia\\jars\\iedriver\\IEDriverServer.exe"/>
   <test name="testExistingGroupLeader">
     <classes>
       <class name="com.linqia.automation.authentication"/>

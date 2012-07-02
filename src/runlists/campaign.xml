@@ -4,6 +4,8 @@
   <parameter name="browser" value="firefox"/>
   <parameter name="Url" value="http://stage.linqia.com"/>
   <parameter name="firefoxProfile" value="c:\\Users\\Administrator\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\r4v77u96.automation\\"/>
+  <parameter name="chromeProfile" value="C:\\Users\\Administrator\\workspace\\Linqia\\jars\\chromedriver\\chromedriver.exe"/>
+  <parameter name="ieProfile" value="C:\\Users\\Administrator\\workspace\\Linqia\\jars\\iedriver\\IEDriverServer.exe"/>
   <test name="testDraftCampaign">
     <classes>
       <class name="com.linqia.automation.campaign"/>
@@ -27,5 +29,17 @@
         <include name="testOverlayDeletion" />
       </methods>
     </classes>
-  </test> 
+  </test>
+  <test name="testEditDraftCampaign">
+    <classes>
+      <class name="com.linqia.automation.campaign"/>
+      <methods>
+        <parameter name="user" value="shikha"/>
+        <parameter name="pwd" value="abracadabra1"/>
+        <parameter name="campaignName" value="How Social Moms Shop"/>
+        <parameter name="keyword" value="Social Mom"/>
+        <include name="testEditDraftCampaign" />
+      </methods>
+    </classes>
+  </test>  
  </suite>
