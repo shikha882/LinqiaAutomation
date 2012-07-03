@@ -8,19 +8,20 @@
   <parameter name="ieProfile" value="C:\\Users\\Administrator\\workspace\\Linqia\\jars\\iedriver\\IEDriverServer.exe"/>
   <test name="testDraftCampaign">
     <classes>
-      <class name="com.linqia.automation.campaign"/>
+      <class name="com.linqia.automation.campaign">
       <methods>
         <parameter name="user" value="shikha"/>
         <parameter name="pwd" value="abracadabra1"/>
         <parameter name="campaignName" value="How Social Moms Shop"/>
         <parameter name="keyword" value="Social Mom"/>
-        <include name="testDraftCampaign" />
+        <include name="testDraftCampaign"/>
       </methods>
+      </class>
     </classes>
   </test>
   <test name="testOverlayDeletion">
     <classes>
-      <class name="com.linqia.automation.campaign"/>
+      <class name="com.linqia.automation.campaign">
       <methods>
         <parameter name="user" value="shikha"/>
         <parameter name="pwd" value="abracadabra1"/>
@@ -28,11 +29,12 @@
         <parameter name="keyword" value="Social Mom"/>
         <include name="testOverlayDeletion" />
       </methods>
+      </class>
     </classes>
   </test>
   <test name="testEditDraftCampaign">
     <classes>
-      <class name="com.linqia.automation.campaign"/>
+      <class name="com.linqia.automation.campaign">
       <methods>
         <parameter name="user" value="shikha"/>
         <parameter name="pwd" value="abracadabra1"/>
@@ -40,6 +42,7 @@
         <parameter name="keyword" value="Social Mom"/>
         <include name="testEditDraftCampaign" />
       </methods>
+      </class>
     </classes>
   </test>  
  </suite>

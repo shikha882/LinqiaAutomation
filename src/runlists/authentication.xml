@@ -6,26 +6,28 @@
   <parameter name="firefoxProfile" value="c:\\Users\\Administrator\\AppData\\Roaming\\Mozilla\\Firefox\\Profiles\\r4v77u96.automation\\"/>
   <parameter name="chromeProfile" value="C:\\Users\\Administrator\\workspace\\Linqia\\jars\\chromedriver\\chromedriver.exe"/>
   <parameter name="ieProfile" value="C:\\Users\\Administrator\\workspace\\Linqia\\jars\\iedriver\\IEDriverServer.exe"/>
+  <!--
   <test name="testExistingGroupLeader">
-    <classes>
-      <class name="com.linqia.automation.authentication"/>
+   <class name="com.linqia.automation.authentication">
       <methods>
         <parameter name="user" value="shikha"/>
         <parameter name="pwd" value="abracadabra1"/>
         <parameter name="userType" value="Brand"/>
         <include name="testExistingGroupLeader" />
       </methods>
-    </classes>
-  </test>
+      </class>
+   </test>
+  -->
   <test name="testExistingBrandUser">
     <classes>
-      <class name="com.linqia.automation.authentication"/>
+      <class name="com.linqia.automation.authentication">
       <methods>
         <parameter name="user" value="sneha"/>
         <parameter name="pwd" value="abracadabra"/>
         <parameter name="userType" value="Group Leader"/>
         <include name="testExistingBrandUser" />
       </methods>
+      </class>
     </classes>
   </test>
 </suite>
